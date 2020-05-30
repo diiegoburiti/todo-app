@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Todo - App</title>
+</head>
+
+<body>
+  <h1 class="title">Todo - App</h1>
+
+  <div class="all_tasks">
+    <h2 class="all_tasks-title">My lists</h2>
+    <ul class="all_tasks-list">
+      <li class="active-list">Mongodb</li>
+      <li class="">Mysql</li>
+      <li class="">Postgres</li>
+    </ul>
+
+    <form action="">
+      <input type="text" class="all_tasks-new-list" placeholder="new list name" aria-label="new list name" />
+      <button class="all_tasks-btn" aria-label="create new list">+</button>
+    </form>
+  </div>
+
+  <div class="todo_list">
+    <div class="todo_list-header">
+      <h2 class="todo_list-title">YouTube</h2>
+      <p class="todo_list-count">3 tasks remaining</p>
+    </div>
+
+    <div class="todo_body">
+      <div class="todo_body-tasks">
+        <div class="todo_body-task">
+          <input type="checkbox" id="task-1" />
+          <label for="task-1"><span class="todo_body-checkbox"></span>record todo list video</label>
+        </div>
+        <!-- /task-1 -->
+
+        <div class="todo_body-task">
+          <input type="checkbox" id="task-2" />
+          <label for="task-2">
+            <span class="custom-checkbox"></span>
+            another task
+          </label>
+        </div>
+        <!-- /task-2 -->
+
+        <div class="todo_body-task">
+          <input type="checkbox" id="task-3" />
+          <label for="task-3">
+            <span class="custom-checkbox"></span>
+            a third task
+          </label>
+        </div>
+        <!-- /task-3 -->
+      </div>
+
+      <div class="new_task_creator">
+        <form action="">
+          <input type="text" class="new_task_creator-task" placeholder="new task name" aria-label="new task name" />
+          <button class="new_task_creator-btn" aria-label="create new task">+</button>
+        </form>
+      </div>
+
+      <div class="delete">
+        <button class="delete-btn ">Clear completed tasks</button>
+        <button class="delete_btn">Delete list</button>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+</body>
+
+</html>

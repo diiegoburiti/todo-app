@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-areas: 'header header header header' '.....  lists   todo  .....';
+  grid-gap: 5px;
+  font-size: 1.5rem;
+  font-family: monospace;
+  overflow-x: hidden;
+}
+
+.title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: header;
+  padding: 40px 0;
+  font-size: 3em;
+}
+
+.all_tasks {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: lists;
+}
+
+.todo_list {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: todo;
+}
+/*# sourceMappingURL=style.css.map */

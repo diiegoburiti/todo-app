@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+  'header header header header'
+  '.....  lists   todo  .....'
+  ;
+  grid-gap: 5px;
+  font-size: 1.5rem;
+  font-family: monospace;
+  overflow-x: hidden;
+}
+
+.title {
+  grid-area: header;
+  padding: 40px 0;
+  font-size: 3em;
+}
+
+.all_tasks {
+  grid-area: lists;
+}
+
+.todo_list  {
+  grid-area: todo;
+}
