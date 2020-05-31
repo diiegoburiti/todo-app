@@ -10,6 +10,7 @@ const tasksContainer = document.querySelector('[data-tasks]');
 const taskTemplate = document.getElementById('task-template');
 const newTaskForm = document.querySelector('[data-new-task-form]');
 const newTaskInput = document.querySelector('[data-new-task-input]');
+const clearCompleteTaskButton = document.querySelector('[data-clear-complete-tasks-button]');
 
 const LOCAL_STORAGE_LIST_KEY = 'task.list';
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
@@ -69,6 +70,12 @@ deleteListButton.addEventListener('click', (event) => {
   saveAndRender();
 })
 
+clearCompleteTaskButton.addEventListener('click', (event) => {
+  const selectList = list.find(list => list.id === selectedListId);
+  selectList.tasks = selectedList.tasks.filter(task => !task.complete);
+  saveAndRender();
+})
+
 function saveAndRender() {
   save();
   render();
@@ -86,7 +93,7 @@ function render() {
   if (selectedListId === null) {
     listDisplayContainer.style.display = 'none';
   } else {
-    listDisplayContainer.style.display = 'block';
+    listDisplayContainer.style.display = '';
     listTitleElement.innerText = selectList.name;
     rederTaskCount(selectList);
     clearElement(tasksContainer);
