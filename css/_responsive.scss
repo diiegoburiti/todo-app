@@ -1,0 +1,53 @@
+@media (max-width: 800px) {
+  body {
+    display: grid;
+    grid-template-columns: 300px 400px;
+    grid-gap: 20px;
+    margin-left: 2.5em;
+  }
+
+  header {
+    grid-column: 1 / -1;
+    margin: 20px 10px;
+    h1 {
+      text-align: left;
+      font-size: 3rem;
+      line-height: 1.5;
+      font-weight: bold;
+      color: $yellow-color;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 0px #333, 3.5px 3.5px 0px rgba(0, 0, 0, 0.8);
+    }
+    p {
+      font-size: 2em;
+      padding-top: 20px;
+    }
+  }
+  .all_tasks {
+    grid-column: 1/2;
+  }
+  .todo_list {
+    grid-column: 2 / 2;
+  }
+}
+
+@media (max-width: 450px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+  }
+
+  header {
+    grid-column: 1 ;
+  }
+  .all_tasks {
+    grid-column: 1;
+  }
+  .todo_list {
+    grid-column: 1;
+  }
+}
