@@ -43,28 +43,28 @@ header {
   padding: 20px;
   max-height: 330px;
   overflow-x: auto;
-}
-
-.all_tasks-title {
-  padding-bottom: 10px;
-}
-.all_tasks-list {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  list-style: circle;
-  padding-left: 1.1em;
-}
-
-.list-name {
-  cursor: pointer;
-}
-
-.list-name:hover {
-  opacity: 0.7;
-}
-
-form {
-  display: flex;
+  
+  .all_tasks-title {
+    padding-bottom: 10px;
+  }
+  .all_tasks-list {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    list-style: circle;
+    padding-left: 1.1em;
+  }
+  
+  .list-name {
+    cursor: pointer;
+  }
+  
+  .list-name:hover {
+    opacity: 0.7;
+  }
+  
+  form {
+    display: flex;
+  }
 }
 
 .btn {

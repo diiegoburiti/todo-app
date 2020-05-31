@@ -48,26 +48,26 @@ header p {
   overflow-x: auto;
 }
 
-.all_tasks-title {
+.all_tasks .all_tasks-title {
   padding-bottom: 10px;
 }
 
-.all_tasks-list {
+.all_tasks .all_tasks-list {
   font-size: 1.2rem;
   line-height: 1.7;
   list-style: circle;
   padding-left: 1.1em;
 }
 
-.list-name {
+.all_tasks .list-name {
   cursor: pointer;
 }
 
-.list-name:hover {
+.all_tasks .list-name:hover {
   opacity: 0.7;
 }
 
-form {
+.all_tasks form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
