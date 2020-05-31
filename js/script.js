@@ -8,6 +8,8 @@ const listCountElement = document.querySelector('[data-list-count]');
 const listTitleElement = document.querySelector('[data-list-title]');
 const tasksContainer = document.querySelector('[data-tasks]');
 const taskTemplate = document.getElementById('task-template');
+const newTaskForm = document.querySelector('[data-new-task-form]');
+const newTaskInput = document.querySelector('[data-new-task-input]');
 
 const LOCAL_STORAGE_LIST_KEY = 'task.list';
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
@@ -22,12 +24,42 @@ newListForm.addEventListener('submit', event => {
   newListInput.value = null;
   lists.push(list);
   saveAndRender();
+});
+
+newTaskForm.addEventListener('submit', event => {
+  event.preventDefault()
+  const taskName = newTaskInput.value;
+  if (taskName === null || taskName === '') return;
+  const task = createTask(taskName);
+  newTaskInput.value = null;
+  const selectedList = lists.find(list => list.id === selectedListId);
+  selectedList.tasks.push(task);
+  saveAndRender();
 })
+
+
+function createList(name) {
+  return { id: Date.now().toString(), name: name, tasks: [] }
+}
+
+function createTask(name) {
+  return { id: Date.now().toString(), name: name, complete: false }
+}
 
 listsContainer.addEventListener('click', (event) => {
   if (event.target.tagName.toLowerCase() === 'li') {
     selectedListId = event.target.dataset.listId;
     saveAndRender();
+  }
+})
+
+tasksContainer.addEventListener('click', (event) => {
+  if (event.target.tagName.toLowerCase() === 'input') {
+    const selectedList = lists.find(list => list.id === selectedListId);
+    const selectedTask = selectedList.tasks.find(task => task.id === event.target.id);
+    selectedTask.complete = event.target.checked;
+    save();
+    rederTaskCount(selectedList);
   }
 })
 
@@ -45,10 +77,6 @@ function saveAndRender() {
 function save() {
   localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists));
   localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId);
-}
-
-function createList(name) {
-  return { id: Date.now().toString(), name: name, tasks: [] }
 }
 
 function render() {
@@ -69,7 +97,7 @@ function render() {
 function renderTasks(selectList) {
   selectList.tasks.forEach(task => {
     const taskElement = document.importNode(taskTemplate.content, true);
-    const checkbox = taskElement.querySelector('checkbox');
+    const checkbox = taskElement.querySelector('input');
     checkbox.id = task.id
     checkbox.checke = task.complete
     const label = taskElement.querySelector('label');
@@ -102,6 +130,5 @@ function clearElement(element) {
     element.removeChild(element.firstChild)
   }
 }
-
 
 render();
